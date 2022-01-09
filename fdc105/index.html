@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>• FDC105 | Challenge selector • </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+ $(document).ready(function() {
+     var names = [
+         "Challenge 1",
+         "Challenge 1",
+         "Challenge 2",
+         "Challenge 2",
+         "Challenge 2",
+         "Challenge 3",
+         "Challenge 3"
+     ];
+
+     function getNames() {
+        var i = Math.floor(Math.random() * names.length);
+        var nextName = names[i]
+        names.remove(i);
+        return nextName;
+     }
+
+     $("#next").click(function() {
+         $('#name').text(getNames());
+     });
+});
+         
+Array.prototype.remove = function(from, to) {
+    var rest = this.slice((to || from) + 1 || this.length);
+    this.length = from < 0 ? this.length + from : from;
+    return this.push.apply(this, rest);
+};
+
+</script>
+</head>
+<body>
+
+<br>
+<div style="font-family: 'Oswald', sans-serif; font-size: 16px;">
+<h1 id="huong-dan">HƯỚNG DẪN CHỌN ĐỀ TÀI CHO MÔN HỌC FDC105</h1>
+</div>
+
+<div style="font-family: 'Oswald', sans-serif; font-size: 16px;">
+<li>Click <b>NEXT</b> để chọn đề tài</li>
+<li>Vui lòng chỉ click tối đa 7 lần, tương ứng với 7 nhóm</li>
+<li>Vui lòng Refresh lại trang web để thực hiện lại (cho tất cả các nhóm) trong trường hợp xảy ra lỗi</li>
+</div><br>
+<center>
+<div style="background-color:powderblue; font-family: 'Oswald', sans-serif; font-size: 20px;">
+<h1 id="name">Tên đề tài</h1>
+</div><br>
+<button id="next">NEXT</button>
+<button>SKIP</button>
+<!-- <p style="font-size:0.8em; float:center;"> <a style="color:#b5bec9" href="https://khanhbrandy.github.io">Ngoc-Khanh Trinh @ 2022</p> -->
+<br>
+<br>
+<footer>
+<p>&copy; Ngoc-Khanh Trinh | <a href="mailto:khanh@datapot.vn">khanh@datapot.vn</a></p>
+</footer>
+</center>
+
+</body>
+</html>
